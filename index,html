@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tracy Waithera - Personal Branding Mastery Deck</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        brand: {
+                            blue: '#0E2052',
+                            gold: '#C6AA56',
+                            light: '#FBFCFF',
+                            dark: '#080705'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <style>
+        body { margin: 0; overflow: hidden; background-color: #0E2052; }
+        .slide {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0;
+            transition: opacity 0.6s cubic-bezier(0.4, 0, 0.2, 1), transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+            pointer-events: none;
+            visibility: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .slide.active {
+            opacity: 1;
+            pointer-events: auto;
+            visibility: visible;
+            transform: translateX(0) scale(1);
+        }
+        .slide.prev {
+            transform: translateX(-100px) scale(0.98);
+            opacity: 0;
+        }
+        .slide.next {
+            transform: translateX(100px) scale(0.98);
+            opacity: 0;
+        }
+        
+        /* Grid Pattern */
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, rgba(198, 170, 86, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(198, 170, 86, 0.05) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+
+        /* Glassmorphism for notes */
+        .glass-panel {
+            background: rgba(251, 252, 255, 0.98);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(198, 170, 86, 0.3);
+        }
+
+        /* Scrollbar styling for speaker notes */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: transparent; }
+        ::-webkit-scrollbar-thumb { background: #C6AA56; border-radius: 4px; }
+    </style>
+</head>
+<body class="text-brand-dark font-sans selection:bg-brand-gold selection:text-white h-screen w-screen relative">
+
+    <!-- Progress Bar -->
+    <div class="absolute top-0 left-0 w-full h-1.5 bg-brand-blue/20 z-50">
+        <div id="progress-bar" class="h-full bg-brand-gold transition-all duration-500 w-0"></div>
+    </div>
+
+    <!-- Slides Container -->
+    <div id="slides-container" class="w-full h-full relative overflow-hidden">
+
+        <!-- Slide 1: Title -->
+        <div class="slide active bg-brand-blue text-white bg-grid-pattern">
+            <div class="max-w-5xl mx-auto px-10 text-center flex flex-col items-center">
+                <img src="https://i.ibb.co/qMWb7585/LOGO-ICON.png" alt="Tracy Waithera Logo" class="h-20 md:h-28 mb-3 object-contain brightness-0 invert" />
+                
+                <div class="inline-flex items-center gap-2 px-6 py-2.5 rounded-full bg-white/10 text-brand-gold font-bold tracking-widest text-xs md:text-sm mb-10 border border-brand-gold/30 uppercase shadow-lg">
+                    <i data-lucide="award" class="w-4 h-4"></i>
+                    Official Coaching Program
+                </div>
+                <h1 class="text-5xl md:text-7xl font-serif font-bold tracking-tight mb-6 leading-tight">
+                    Personal Branding<br/><span class="text-brand-gold">Evolution Mastery</span>
+                </h1>
+                <p class="text-xl md:text-3xl font-light text-blue-100/90 uppercase tracking-[0.2em] mt-4">
+                    Building Your Digital Legacy
+                </p>
+                <div class="w-24 h-1 bg-brand-gold rounded-full mt-12 opacity-50"></div>
+            </div>
+        </div>
+
+        <!-- Slide 2: The Macro Shift -->
+        <div class="slide bg-brand-light text-brand-dark">
+            <div class="max-w-7xl mx-auto px-10 w-full">
+                <div class="flex items-center gap-4 mb-4">
+                    <span class="text-brand-gold font-bold tracking-widest uppercase">01. The Big Change</span>
+                </div>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-blue mb-4">The Death of the Faceless Corporation</h2>
+                <div class="w-24 h-1.5 bg-brand-gold rounded-full mb-12"></div>
+                
+                <div class="grid md:grid-cols-2 gap-10">
+                    <div class="bg-white p-8 rounded-3xl border border-gray-200 shadow-sm flex flex-col">
+                        <div class="flex items-center gap-4 mb-8 text-gray-400">
+                            <i data-lucide="building-2" class="w-10 h-10"></i>
+                            <h3 class="text-2xl font-bold">The Old Corporate Way</h3>
+                        </div>
+                        <ul class="space-y-6 text-lg text-gray-500 flex-grow">
+                            <li class="flex items-start gap-4"><i data-lucide="x" class="text-red-400 shrink-0 mt-1"></i> <div><strong>The Logo Shield:</strong> Hiding behind a company logo. It feels cold and disconnected.</div></li>
+                            <li class="flex items-start gap-4"><i data-lucide="x" class="text-red-400 shrink-0 mt-1"></i> <div><strong>Stiff Language:</strong> Using big, confusing English words that don't connect with everyday people.</div></li>
+                            <li class="flex items-start gap-4"><i data-lucide="x" class="text-red-400 shrink-0 mt-1"></i> <div><strong>The Silence Trap:</strong> Believing "my hard work will speak for itself." If you are silent, you are invisible.</div></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-brand-blue p-8 rounded-3xl shadow-2xl text-white relative overflow-hidden transform md:scale-105 border border-brand-gold/20">
+                        <div class="absolute -right-10 -bottom-10 opacity-[0.05]"><i data-lucide="fingerprint" class="w-80 h-80"></i></div>
+                        <div class="relative z-10 flex flex-col h-full">
+                            <div class="flex items-center gap-4 mb-8 text-brand-gold">
+                                <i data-lucide="zap" class="w-10 h-10"></i>
+                                <h3 class="text-2xl font-bold">The New African Trust Economy</h3>
+                            </div>
+                            <ul class="space-y-6 text-lg flex-grow">
+                                <li class="flex items-start gap-4"><i data-lucide="check-circle-2" class="text-brand-gold shrink-0 mt-1"></i> <div><strong>People Buy From People:</strong> In Africa, we buy from people we know and trust. Your face is your best marketing tool.</div></li>
+                                <li class="flex items-start gap-4"><i data-lucide="check-circle-2" class="text-brand-gold shrink-0 mt-1"></i> <div><strong>Your Unfair Advantage:</strong> AI can copy your writing, but it can never copy your personal life story and experiences.</div></li>
+                                <li class="flex items-start gap-4"><i data-lucide="check-circle-2" class="text-brand-gold shrink-0 mt-1"></i> <div><strong>Founder-Led Business:</strong> When people trust the founder, they automatically trust the business.</div></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: The Architecture of You -->
+        <div class="slide bg-brand-blue text-white bg-grid-pattern">
+            <div class="max-w-7xl mx-auto px-10 w-full">
+                <div class="text-center mb-12">
+                    <span class="text-brand-gold font-bold tracking-widest uppercase mb-2 block">02. Your Foundation</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold">Your Brand Blueprint</h2>
+                    <div class="w-24 h-1.5 bg-brand-gold rounded-full mt-6 mx-auto"></div>
+                </div>
+                
+                <div class="grid md:grid-cols-4 gap-6">
+                    <div class="bg-white/5 border border-brand-gold/30 p-8 rounded-3xl backdrop-blur-sm transition-all hover:bg-white/10 hover:-translate-y-2 group">
+                        <i data-lucide="eye" class="w-12 h-12 text-brand-gold mb-6 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-2xl font-bold mb-3">Vision</h3>
+                        <p class="text-blue-100/80 text-sm leading-relaxed mb-4">What big change do you want to bring to your community or industry in the next 10 years?</p>
+                        <p class="text-xs text-brand-gold font-semibold uppercase tracking-wider border-t border-white/10 pt-4">The "Why"</p>
+                    </div>
+                    <div class="bg-white/5 border border-brand-gold/30 p-8 rounded-3xl backdrop-blur-sm transition-all hover:bg-white/10 hover:-translate-y-2 group">
+                        <i data-lucide="heart" class="w-12 h-12 text-brand-gold mb-6 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-2xl font-bold mb-3">Values</h3>
+                        <p class="text-blue-100/80 text-sm leading-relaxed mb-4">The rules you live by. Things like community (Ubuntu), honesty, and hard work. What do you stand for?</p>
+                        <p class="text-xs text-brand-gold font-semibold uppercase tracking-wider border-t border-white/10 pt-4">The "Heart"</p>
+                    </div>
+                    <div class="bg-white/5 border border-brand-gold/30 p-8 rounded-3xl backdrop-blur-sm transition-all hover:bg-white/10 hover:-translate-y-2 group">
+                        <i data-lucide="mic" class="w-12 h-12 text-brand-gold mb-6 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-2xl font-bold mb-3">Voice</h3>
+                        <p class="text-blue-100/80 text-sm leading-relaxed mb-4">How do you speak? Are you the strict mentor, the encouraging friend, or the bold challenger? Keep it natural.</p>
+                        <p class="text-xs text-brand-gold font-semibold uppercase tracking-wider border-t border-white/10 pt-4">The "Tone"</p>
+                    </div>
+                    <div class="bg-white/5 border border-brand-gold/30 p-8 rounded-3xl backdrop-blur-sm transition-all hover:bg-white/10 hover:-translate-y-2 group">
+                        <i data-lucide="palette" class="w-12 h-12 text-brand-gold mb-6 group-hover:scale-110 transition-transform"></i>
+                        <h3 class="text-2xl font-bold mb-3">Visuals</h3>
+                        <p class="text-blue-100/80 text-sm leading-relaxed mb-4">The specific colors and photo styles you always use, so people instantly recognize you on their timeline.</p>
+                        <p class="text-xs text-brand-gold font-semibold uppercase tracking-wider border-t border-white/10 pt-4">The "Look"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Personal Monopoly -->
+        <div class="slide bg-brand-light text-brand-dark">
+            <div class="max-w-7xl mx-auto px-10 w-full">
+                <div class="flex flex-col md:flex-row gap-12 items-center">
+                    <div class="flex-1">
+                        <span class="text-brand-gold font-bold tracking-widest uppercase mb-2 block">03. Stand Out</span>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-blue mb-6">Create Your Own Lane</h2>
+                        <p class="text-gray-600 text-lg mb-8 leading-relaxed">
+                            Calling yourself just a "Consultant" means you are competing with millions of people. To charge high prices, you must become the ONLY person who does what you do.
+                        </p>
+                        
+                        <div class="space-y-6">
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-brand-gold">
+                                <h4 class="font-bold text-brand-blue text-lg">1. Combine Your Skills</h4>
+                                <p class="text-sm text-gray-600 mt-1">Mix two things that usually don't go together. (e.g., Tech Founder + Mental Health Advocate).</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-brand-gold">
+                                <h4 class="font-bold text-brand-blue text-lg">2. Add Your African Story</h4>
+                                <p class="text-sm text-gray-600 mt-1">Your background, your struggles, and how you grew up make your brand impossible to copy.</p>
+                            </div>
+                            <div class="bg-white p-6 rounded-2xl shadow-sm border-l-4 border-brand-gold">
+                                <h4 class="font-bold text-brand-blue text-lg">3. Repel Bad Clients</h4>
+                                <p class="text-sm text-gray-600 mt-1">A strong brand will naturally push away people who aren't a good fit. That is a good thing!</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="flex-1 w-full max-w-md mx-auto">
+                        <div class="bg-brand-blue rounded-full aspect-square p-12 flex flex-col items-center justify-center relative shadow-2xl border-8 border-white">
+                            <!-- Intersecting circles visual -->
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-20">
+                                <div class="w-64 h-64 border-2 border-brand-gold rounded-full -ml-20"></div>
+                                <div class="w-64 h-64 border-2 border-white rounded-full -mr-20"></div>
+                                <div class="w-64 h-64 border-2 border-brand-gold rounded-full mt-32 absolute"></div>
+                            </div>
+                            
+                            <div class="relative z-10 text-center space-y-3">
+                                <span class="bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-semibold border border-white/20">Your Main Skill</span>
+                                <div class="text-brand-gold font-bold text-xl">+</div>
+                                <span class="bg-white/10 text-white px-4 py-1.5 rounded-full text-sm font-semibold border border-white/20">Your Unique Passion</span>
+                                <div class="text-brand-gold font-bold text-xl">+</div>
+                                <span class="bg-brand-gold text-brand-blue px-4 py-1.5 rounded-full text-sm font-bold shadow-lg">Your Personal Story</span>
+                                <div class="mt-6">
+                                    <div class="text-white font-serif font-bold text-2xl tracking-wide">Category of One</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Digital Footprint -->
+        <div class="slide bg-brand-blue text-white bg-grid-pattern">
+            <div class="max-w-7xl mx-auto px-10 w-full">
+                <div class="text-center mb-12">
+                    <span class="text-brand-gold font-bold tracking-widest uppercase mb-2 block">04. Where You Live Online</span>
+                    <h2 class="text-4xl md:text-5xl font-serif font-bold">Rented Land vs. Your Castle</h2>
+                    <div class="w-24 h-1.5 bg-brand-gold rounded-full mt-6 mx-auto"></div>
+                </div>
+                
+                <div class="flex flex-col lg:flex-row gap-6 items-stretch">
+                    <div class="flex-1 bg-white/5 p-8 rounded-3xl border border-gray-400/30 flex flex-col relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-gray-500/20 text-gray-300 text-xs font-bold px-4 py-1 rounded-bl-xl">Step 1: Get Noticed</div>
+                        <h3 class="text-2xl font-bold mb-2 flex items-center gap-3"><i data-lucide="megaphone" class="text-[#0a66c2]"></i> The Public Stage</h3>
+                        <p class="text-brand-gold font-semibold text-sm mb-6">LinkedIn, X, TikTok</p>
+                        <p class="text-blue-100 text-sm leading-relaxed mb-6 flex-grow">This is where you meet strangers. You share smart ideas so people discover you. But remember, the social media company owns your followers here.</p>
+                        <div class="bg-black/20 p-4 rounded-xl border border-white/10 text-xs text-gray-300">
+                            <strong>Danger:</strong> If they close your account, you lose everything.
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center lg:rotate-0 rotate-90">
+                        <i data-lucide="arrow-right" class="text-brand-gold w-8 h-8 opacity-50"></i>
+                    </div>
+
+                    <div class="flex-1 bg-white/5 p-8 rounded-3xl border border-[#E1306C]/30 flex flex-col relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-[#E1306C]/20 text-pink-200 text-xs font-bold px-4 py-1 rounded-bl-xl">Step 2: Build Trust</div>
+                        <h3 class="text-2xl font-bold mb-2 flex items-center gap-3"><i data-lucide="coffee" class="text-[#E1306C]"></i> The Living Room</h3>
+                        <p class="text-brand-gold font-semibold text-sm mb-6">Instagram Stories, YouTube</p>
+                        <p class="text-blue-100 text-sm leading-relaxed mb-6 flex-grow">This is where you invite people in. You show your daily life, your mistakes, and your personality. You turn strangers into warm friends.</p>
+                        <div class="bg-black/20 p-4 rounded-xl border border-white/10 text-xs text-gray-300">
+                            <strong>Goal:</strong> Make them feel like they know you personally.
+                        </div>
+                    </div>
+
+                    <div class="flex items-center justify-center lg:rotate-0 rotate-90">
+                        <i data-lucide="arrow-right" class="text-brand-gold w-8 h-8 opacity-50"></i>
+                    </div>
+
+                    <div class="flex-1 bg-brand-gold/10 p-8 rounded-3xl border-2 border-brand-gold flex flex-col relative overflow-hidden transform lg:scale-105 shadow-2xl">
+                        <div class="absolute top-0 right-0 bg-brand-gold text-brand-blue text-xs font-bold px-4 py-1 rounded-bl-xl">Step 3: Make Money</div>
+                        <h3 class="text-2xl font-bold mb-2 flex items-center gap-3"><i data-lucide="castle" class="text-brand-gold"></i> Your Castle</h3>
+                        <p class="text-brand-gold font-semibold text-sm mb-6">WhatsApp, Website, Emails</p>
+                        <p class="text-blue-100 text-sm leading-relaxed mb-6 flex-grow">This is the land you own. Having a direct WhatsApp line or an email list means you can reach your true fans anytime, for free. This is where sales happen.</p>
+                        <div class="bg-brand-blue p-4 rounded-xl border border-brand-gold/30 text-xs text-white">
+                            <strong>Fact:</strong> A WhatsApp list of 1,000 true fans is better than 100k TikTok followers.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Content Strategy -->
+        <div class="slide bg-brand-light text-brand-dark">
+            <div class="max-w-6xl mx-auto px-10 w-full text-center">
+                <span class="text-brand-gold font-bold tracking-widest uppercase mb-2 block">05. What to Post</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-blue mb-12">The Simple Content Rule</h2>
+                
+                <div class="flex flex-col md:flex-row gap-6 justify-center items-stretch text-left">
+                    <div class="flex-1 bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col">
+                        <div class="w-12 h-12 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center mb-6 border border-blue-100"><i data-lucide="book-open" class="w-6 h-6"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Educate <span class="text-gray-400 text-lg font-normal">(60%)</span></h3>
+                        <p class="text-brand-gold font-semibold text-sm uppercase tracking-wider mb-4">Show You Are Smart</p>
+                        <p class="text-gray-600 text-sm flex-grow leading-relaxed">Give away good advice for free. Teach them how to solve small problems. Break down complex industry news into simple English. Prove you know your stuff.</p>
+                    </div>
+                    
+                    <div class="flex-1 bg-brand-blue text-white p-8 rounded-3xl shadow-2xl border-2 border-brand-gold flex flex-col transform md:-translate-y-4 relative">
+                        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2 bg-brand-gold text-brand-blue text-xs font-bold px-4 py-1 rounded-full shadow-md whitespace-nowrap">The Heart</div>
+                        <div class="w-12 h-12 bg-brand-gold/20 text-brand-gold rounded-xl flex items-center justify-center mb-6 border border-brand-gold/30"><i data-lucide="heart" class="w-6 h-6"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Connect <span class="text-blue-200 text-lg font-normal">(30%)</span></h3>
+                        <p class="text-brand-gold font-semibold text-sm uppercase tracking-wider mb-4">Show You Are Human</p>
+                        <p class="text-blue-100 text-sm flex-grow leading-relaxed">Share your personal story, your mental health challenges, and your mistakes. People connect with your struggles much more than your successes.</p>
+                    </div>
+                    
+                    <div class="flex-1 bg-white p-8 rounded-3xl shadow-lg border border-gray-100 flex flex-col">
+                        <div class="w-12 h-12 bg-green-50 text-green-600 rounded-xl flex items-center justify-center mb-6 border border-green-100"><i data-lucide="shopping-cart" class="w-6 h-6"></i></div>
+                        <h3 class="text-2xl font-bold mb-2">Promote <span class="text-gray-400 text-lg font-normal">(10%)</span></h3>
+                        <p class="text-green-600 font-semibold text-sm uppercase tracking-wider mb-4">Ask for the Sale</p>
+                        <p class="text-gray-600 text-sm flex-grow leading-relaxed">Don't be shy. Clearly tell people what you sell, how it helps them, and how to pay you. If you don't sell, you don't have a business.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Mental Health -->
+        <div class="slide bg-brand-blue text-white bg-grid-pattern">
+            <div class="max-w-7xl mx-auto px-10 w-full">
+                <div class="flex items-center gap-6 mb-12">
+                    <div class="p-4 bg-brand-gold/20 rounded-2xl"><i data-lucide="brain" class="w-10 h-10 text-brand-gold"></i></div>
+                    <div>
+                        <span class="text-brand-gold font-bold tracking-widest uppercase mb-1 block">06. Protecting Your Peace</span>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold">Mental Health & Boundaries</h2>
+                    </div>
+                </div>
+                
+                <div class="grid md:grid-cols-12 gap-12 items-center">
+                    <div class="md:col-span-7">
+                        <p class="text-xl text-blue-100/90 leading-relaxed mb-10 font-light">
+                            Looking successful online attracts a lot of pressure—from endless DMs to family "Black Tax." You must protect your mental health to survive.
+                        </p>
+                        <div class="space-y-8">
+                            <div class="flex gap-5">
+                                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20"><i data-lucide="shield" class="text-brand-gold w-5 h-5"></i></div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">Set Strong Boundaries</h4>
+                                    <p class="text-blue-100/70 text-sm">Decide what you will never post about (e.g., your kids, your private relationships). You control what the world sees.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-5">
+                                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20"><i data-lucide="bandage" class="text-brand-gold w-5 h-5"></i></div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">Share Scars, Not Open Wounds</h4>
+                                    <p class="text-blue-100/70 text-sm">It's good to talk about hard times, but only *after* you have healed and learned from them. Don't bleed on the internet.</p>
+                                </div>
+                            </div>
+                            <div class="flex gap-5">
+                                <div class="w-12 h-12 rounded-full bg-white/10 flex items-center justify-center shrink-0 border border-white/20"><i data-lucide="battery-charging" class="text-brand-gold w-5 h-5"></i></div>
+                                <div>
+                                    <h4 class="text-xl font-bold mb-1">You Are Not Their Therapist</h4>
+                                    <p class="text-blue-100/70 text-sm">When you share your struggles, people will share theirs with you. It can be exhausting. Know when to step away and rest.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="md:col-span-5">
+                        <div class="bg-gradient-to-br from-white/10 to-transparent p-10 rounded-[2.5rem] border border-brand-gold/30 text-center relative shadow-2xl">
+                            <i data-lucide="quote" class="absolute top-6 left-6 w-12 h-12 text-brand-gold/20"></i>
+                            <p class="text-2xl font-serif italic mb-8 relative z-10 leading-snug mt-6 text-white">
+                                "Being authentic doesn't mean you have to share everything. It just means that whatever you *do* share is 100% honest."
+                            </p>
+                            <div class="w-12 h-1 bg-brand-gold mx-auto mb-4"></div>
+                            <p class="text-brand-gold font-bold uppercase tracking-widest text-xs">The Golden Rule</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Building in Public -->
+        <div class="slide bg-brand-light text-brand-dark">
+            <div class="max-w-7xl mx-auto px-10 w-full">
+                <div class="flex flex-col lg:flex-row items-center gap-16">
+                    <div class="flex-1">
+                        <span class="text-brand-gold font-bold tracking-widest uppercase mb-2 block">07. Execution</span>
+                        <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-blue mb-6">Show Your Work</h2>
+                        <p class="text-xl text-gray-600 mb-8 leading-relaxed font-light">
+                            Africans respect the "hustle." People don't just want to see your shiny success; they want to see the hard work and the messy process it took to get there.
+                        </p>
+                        
+                        <ul class="space-y-6">
+                            <li class="flex items-start gap-5 bg-white p-5 rounded-2xl shadow-sm border border-gray-100 transition-hover hover:border-brand-gold">
+                                <div class="bg-brand-blue text-brand-gold w-10 h-10 rounded-xl flex items-center justify-center shrink-0 font-bold text-lg">1</div>
+                                <div><strong class="text-lg block text-brand-blue mb-1">Document, Don't Create</strong><span class="text-gray-600 text-sm">Don't stress over making perfect videos. Just take a picture of your messy desk, or share notes from a meeting. Share what you are doing right now.</span></div>
+                            </li>
+                            <li class="flex items-start gap-5 bg-white p-5 rounded-2xl shadow-sm border border-gray-100 transition-hover hover:border-brand-gold">
+                                <div class="bg-brand-blue text-brand-gold w-10 h-10 rounded-xl flex items-center justify-center shrink-0 font-bold text-lg">2</div>
+                                <div><strong class="text-lg block text-brand-blue mb-1">The Power of Honesty</strong><span class="text-gray-600 text-sm">If you make a mistake or lose money, talk about it. When you tell the truth about your failures, people trust you instantly.</span></div>
+                            </li>
+                            <li class="flex items-start gap-5 bg-white p-5 rounded-2xl shadow-sm border border-gray-100 transition-hover hover:border-brand-gold">
+                                <div class="bg-brand-blue text-brand-gold w-10 h-10 rounded-xl flex items-center justify-center shrink-0 font-bold text-lg">3</div>
+                                <div><strong class="text-lg block text-brand-blue mb-1">Build it Together</strong><span class="text-gray-600 text-sm">Ask your audience for advice. "Which logo looks better?" If they help you build it, they will be the first ones to buy it.</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="lg:w-[450px]">
+                        <div class="bg-brand-blue text-white p-10 rounded-[2.5rem] shadow-2xl relative border-4 border-white">
+                            <div class="absolute -top-4 -right-4 bg-brand-gold text-brand-blue font-bold px-4 py-2 rounded-xl shadow-lg rotate-3 text-sm">The Big Shift</div>
+                            <h3 class="text-2xl font-bold mb-4 flex items-center gap-3"><i data-lucide="x-circle" class="text-red-400"></i> The Untouchable Expert</h3>
+                            <p class="text-blue-100 text-sm mb-6 leading-relaxed italic">"Look at me, I am perfect and I have all the answers. I am at the top." (People ignore this).</p>
+                            <div class="w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent mb-6"></div>
+                            <h3 class="text-2xl font-bold mb-4 text-brand-gold flex items-center gap-3"><i data-lucide="check-circle-2"></i> The Honest Guide</h3>
+                            <p class="text-blue-100 text-sm leading-relaxed font-medium">"I am working hard and figuring things out, just like you. Here is what I learned today." (People love this).</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Monetization -->
+        <div class="slide bg-brand-blue text-white bg-grid-pattern">
+            <div class="max-w-6xl mx-auto px-10 w-full text-center">
+                <span class="text-brand-gold font-bold tracking-widest uppercase mb-2 block">08. How to Make Money</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold mb-4">Turning Attention into Revenue</h2>
+                <p class="text-xl text-blue-100/80 mb-12 font-light">Likes on Instagram don't pay the rent. Here is how you turn your good name into a solid business.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-6 text-left">
+                    <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-brand-gold transition-all hover:-translate-y-2 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-white/10 px-3 py-1 rounded-bl-lg text-[10px] uppercase tracking-widest text-brand-gold font-bold">Easy Sales</div>
+                        <i data-lucide="download-cloud" class="text-brand-gold mb-6 w-10 h-10 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-xl mb-3">Digital Products</h4>
+                        <p class="text-sm text-blue-100 leading-relaxed">Sell small guides or templates that people can download and pay for instantly via Mobile Money (M-Pesa, Momo).</p>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-brand-gold transition-all hover:-translate-y-2 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-white/10 px-3 py-1 rounded-bl-lg text-[10px] uppercase tracking-widest text-brand-gold font-bold">Reach More</div>
+                        <i data-lucide="users" class="text-brand-gold mb-6 w-10 h-10 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-xl mb-3">Group Classes</h4>
+                        <p class="text-sm text-blue-100 leading-relaxed">Instead of teaching one person, teach twenty people at once online. It saves you time and builds a community.</p>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-3xl border border-white/10 hover:border-brand-gold transition-all hover:-translate-y-2 group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 bg-white/10 px-3 py-1 rounded-bl-lg text-[10px] uppercase tracking-widest text-brand-gold font-bold">Authority</div>
+                        <i data-lucide="mic-2" class="text-brand-gold mb-6 w-10 h-10 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-xl mb-3">Paid Speaking</h4>
+                        <p class="text-sm text-blue-100 leading-relaxed">Getting paid to share your story and knowledge on stage. This proves you are a top expert in your field.</p>
+                    </div>
+                    <div class="bg-white/5 p-8 rounded-3xl border border-brand-gold/50 shadow-[0_0_30px_rgba(198,170,86,0.15)] hover:-translate-y-2 group relative overflow-hidden bg-gradient-to-b from-brand-gold/10 to-transparent">
+                        <div class="absolute top-0 right-0 bg-brand-gold text-brand-blue px-3 py-1 rounded-bl-lg text-[10px] uppercase tracking-widest font-bold">Premium</div>
+                        <i data-lucide="briefcase" class="text-brand-gold mb-6 w-10 h-10 group-hover:scale-110 transition-transform"></i>
+                        <h4 class="font-bold text-xl mb-3">Expert Advice</h4>
+                        <p class="text-sm text-blue-100 leading-relaxed">Work 1-on-1 with big companies or leaders. They will pay a high price just to get access to your specific brain.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: The 10-Year Game -->
+        <div class="slide bg-brand-light text-brand-dark">
+            <div class="max-w-6xl mx-auto px-10 w-full text-center">
+                <span class="text-brand-gold font-bold tracking-widest uppercase mb-2 block">09. The Horizon</span>
+                <h2 class="text-4xl md:text-5xl font-serif font-bold text-brand-blue mb-6">Playing the 10-Year Game</h2>
+                <div class="w-24 h-1.5 bg-brand-gold rounded-full mb-12 mx-auto"></div>
+                
+                <p class="text-2xl text-gray-600 mb-16 max-w-4xl mx-auto font-light leading-relaxed">
+                    Building a brand is not a quick "wash-wash" money scheme. It is about building generational wealth and a name that lasts.
+                </p>
+                
+                <div class="grid md:grid-cols-3 gap-10">
+                    <div class="p-8 bg-white rounded-3xl shadow-xl border border-gray-100 relative mt-8">
+                        <div class="w-16 h-16 bg-brand-blue text-brand-gold rounded-2xl flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2 shadow-lg text-2xl font-bold">1</div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-4 mt-6">Content That Lasts</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Don't just chase today's viral dance. Write good articles or make YouTube videos that will still be helpful to people 5 years from now.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-3xl shadow-xl border border-gray-100 relative mt-8">
+                        <div class="w-16 h-16 bg-brand-blue text-brand-gold rounded-2xl flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2 shadow-lg text-2xl font-bold">2</div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-4 mt-6">AI as Your Assistant</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Use AI (like ChatGPT) to help you organize ideas and save time. But never let it write your final words. Keep your own human voice.</p>
+                    </div>
+                    <div class="p-8 bg-white rounded-3xl shadow-xl border-2 border-brand-gold relative mt-8">
+                        <div class="w-16 h-16 bg-brand-gold text-brand-blue rounded-2xl flex items-center justify-center mx-auto absolute -top-8 left-1/2 transform -translate-x-1/2 shadow-lg text-2xl font-bold">3</div>
+                        <h3 class="text-xl font-bold text-brand-blue mb-4 mt-6">Never Sell Your Trust</h3>
+                        <p class="text-gray-600 text-sm leading-relaxed">Walk away from quick money today if the deal feels wrong or dishonest. A ruined reputation will cost you millions in the long run.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Q&A and CTA -->
+        <div class="slide bg-brand-blue text-white bg-grid-pattern">
+            <div class="max-w-4xl mx-auto px-10 w-full text-center">
+                <img src="https://i.ibb.co/qMWb7585/LOGO-ICON.png" alt="Tracy Waithera Logo" class="h-16 md:h-20 mx-auto mb-6 object-contain brightness-0 invert" />
+                <h2 class="text-5xl md:text-7xl font-serif font-bold text-white mb-6">Build Your Legacy.</h2>
+                <p class="text-2xl text-blue-100/80 mb-12 font-light">From a hidden worker to the go-to expert in your field.</p>
+                
+                <div class="bg-white p-10 md:p-12 rounded-[2.5rem] shadow-[0_20px_50px_rgba(0,0,0,0.3)] border-4 border-brand-gold text-brand-dark">
+                    <h3 class="text-3xl font-bold text-brand-blue mb-3">The Floor is Yours</h3>
+                    <p class="text-lg text-gray-600 mb-10">What is the biggest thing holding you back from starting your personal brand today?</p>
+                    
+                    <button class="bg-brand-gold hover:bg-[#b0964c] text-brand-dark text-xl font-bold py-5 px-12 rounded-full transition-all duration-300 hover:scale-105 shadow-xl flex items-center gap-3 mx-auto">
+                        <i data-lucide="arrow-up-right" class="w-6 h-6"></i> Book Your Strategy Session
+                    </button>
+                    
+                    <div class="mt-10 pt-8 border-t border-gray-200">
+                        <div class="flex flex-col md:flex-row justify-center items-center gap-4 md:gap-6 mb-3">
+                            <a href="https://tracywaithera.com" target="_blank" rel="noopener noreferrer" class="text-brand-blue font-bold tracking-wider hover:text-brand-gold transition-colors flex items-center gap-2">
+                                <i data-lucide="globe" class="w-4 h-4"></i> tracywaithera.com
+                            </a>
+                            <span class="text-brand-gold hidden md:inline opacity-50">•</span>
+                            <a href="https://trouvemarketingsolutions.com" target="_blank" rel="noopener noreferrer" class="text-brand-blue font-bold tracking-wider hover:text-brand-gold transition-colors flex items-center gap-2">
+                                <i data-lucide="building" class="w-4 h-4"></i> trouvemarketingsolutions.com
+                            </a>
+                        </div>
+                        <p class="text-xs md:text-sm font-semibold text-gray-500 uppercase tracking-[0.2em] mt-4 leading-relaxed">
+                            Tracy Waithera<br class="md:hidden"/> <span class="hidden md:inline">—</span> Brand Strategist • AI Creative • Mental Health Advocate
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation Controls -->
+    <div class="absolute bottom-6 left-0 w-full flex justify-between px-8 z-50 pointer-events-none">
+        <div class="flex gap-4 pointer-events-auto">
+            <button onclick="prevSlide()" class="w-12 h-12 rounded-full bg-black/20 hover:bg-white/10 text-brand-gold flex items-center justify-center backdrop-blur-md transition-colors border border-brand-gold/30 shadow-lg">
+                <i data-lucide="chevron-left" class="w-6 h-6"></i>
+            </button>
+            <button onclick="nextSlide()" class="w-12 h-12 rounded-full bg-black/20 hover:bg-white/10 text-brand-gold flex items-center justify-center backdrop-blur-md transition-colors border border-brand-gold/30 shadow-lg">
+                <i data-lucide="chevron-right" class="w-6 h-6"></i>
+            </button>
+        </div>
+        
+        <button onclick="toggleNotes()" class="pointer-events-auto flex items-center gap-2 px-6 py-3 rounded-full bg-brand-gold hover:bg-[#b0964c] text-brand-dark font-bold shadow-2xl transition-transform hover:scale-105 active:scale-95 border border-white/20">
+            <i data-lucide="mic" class="w-4 h-4"></i> Speaker Notes
+        </button>
+    </div>
+
+    <!-- Speaker Notes Modal -->
+    <div id="notes-modal" class="fixed inset-0 z-[100] hidden flex items-end justify-center p-4 md:p-8 pointer-events-none">
+        <div class="absolute inset-0 bg-brand-blue/80 backdrop-blur-md pointer-events-auto opacity-0 transition-opacity duration-400" id="notes-backdrop" onclick="toggleNotes()"></div>
+        <div class="glass-panel w-full max-w-4xl rounded-[2rem] shadow-2xl p-8 md:p-12 pointer-events-auto transform translate-y-full transition-transform duration-500 flex flex-col max-h-[85vh]" id="notes-content">
+            <div class="flex justify-between items-center mb-8 border-b border-brand-gold/30 pb-6">
+                <h3 class="text-3xl font-serif font-bold text-brand-blue flex items-center gap-4">
+                    <i data-lucide="mic" class="text-brand-gold w-8 h-8"></i> Executive Coaching Script
+                </h3>
+                <button onclick="toggleNotes()" class="p-3 bg-gray-100 hover:bg-gray-200 rounded-full text-gray-600 transition-colors">
+                    <i data-lucide="x" class="w-6 h-6"></i>
+                </button>
+            </div>
+            <div id="current-note" class="text-xl text-gray-700 leading-relaxed overflow-y-auto pr-6 font-sans font-light pb-8">
+                <!-- Dynamically injected -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Logic -->
+    <script>
+        lucide.createIcons();
+
+        const slides = document.querySelectorAll('.slide');
+        const progressBar = document.getElementById('progress-bar');
+        const notesModal = document.getElementById('notes-modal');
+        const notesBackdrop = document.getElementById('notes-backdrop');
+        const notesContent = document.getElementById('notes-content');
+        const currentNoteDisplay = document.getElementById('current-note');
+        
+        let currentSlide = 0;
+        let notesVisible = false;
+
+        // The Deep Masterclass Coaching Script - Simplified and Culturally Grounded (11 slides total)
+        const speakerNotes = [
+            "Welcome, everyone. Today we are talking about YOU. In Africa, business has always been about community. We buy from the local vendor we know by name, not from a faceless building. Your personal brand is just taking that local trust and putting it online. By the end of this session, you will know exactly how to step out, build trust, and turn your good name into a solid business.",
+            
+            "Let's look at how things have changed. The old corporate way of hiding behind a slick logo does not work anymore. Africans buy from people they know and trust. We want to see the face behind the business. When people trust you—the founder—they automatically trust what you are selling. Your face and your honesty are your best marketing tools.",
+            
+            "Before we write a single post, we must build your foundation. Think of this as your brand blueprint. First, Vision: What is your big goal? Second, Values: What do you stand for? Think of 'Ubuntu'—I am because we are. Third, Voice: How do you speak? Keep it natural, like you are talking to a friend. Lastly, Visuals: Pick a consistent look and feel so people always recognize your work.",
+            
+            "Here is the truth: If you just call yourself a 'Consultant' or 'Marketer,' you are competing with thousands of others. You must stand out. Combine your unique African background, your struggles, and your professional skills. When you mix them together, you become the ONLY person who does what you do. You attract the right clients and naturally push away the bad ones.",
+            
+            "Now, where do you build this brand? Social media like X, TikTok, or LinkedIn is just a stage. You don't own it—they can delete your account tomorrow. You use social media to meet strangers. But the real goal is to move them into your 'Castle'—your own website or a private WhatsApp list. WhatsApp is where real African business and community happens. You must own your contacts.",
+            
+            "So, what do you actually post? Keep it simple: Educate, Connect, Promote. Spend 60% of your time teaching people things for free to show you are smart. Spend 30% sharing your human side, your struggles, and your real life to build trust. And spend 10% actually asking for the sale. Don't be afraid to tell people how to pay you. If you don't ask, you don't eat.",
+            
+            "As a Mental Health Advocate, I must stress this: Looking successful online comes with a heavy price. It brings endless DMs, pressure, and the reality of 'Black Tax' from extended family and friends. You must protect your peace. Decide today what parts of your life are totally private. Guard your energy, because a burned-out founder cannot run a business.",
+            
+            "We have a deep respect for the 'hustle'. People don't want to see a fake, polished, perfect life online—they know it's a lie. They want to see the real work. Show your messy desk. Talk about the deal you lost. When you are honest about your struggles and your hustle, people respect you more and they will support your journey.",
+            
+            "Once people trust you, how do you make money? You can sell digital guides and have people pay you instantly via Mobile Money like M-Pesa. As you grow, you can host group classes to reach more people at once. Eventually, big companies will pay you premium rates just to come speak on their stage or give them expert advice. Your brain becomes the product.",
+            
+            "This is the most important rule today: Building a brand is not a 'wash-wash' get-rich-quick scheme. It is a 10-year game to build generational wealth. Create content that will still be useful years from now. Use AI as a helpful assistant, but never lose your true voice. And never, ever sell your trust for quick money today. Your reputation is everything.",
+            
+            "We have covered your brand foundation, how to post, protecting your mental health, and how to make money from your knowledge. You have the blueprint. The only thing left is to start. So, I am opening the floor to you: What is the biggest thing holding you back from starting your personal brand today? Let's talk."
+        ];
+
+        function updateSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove('active', 'prev', 'next');
+                if (index === currentSlide) {
+                    slide.classList.add('active');
+                } else if (index < currentSlide) {
+                    slide.classList.add('prev');
+                } else {
+                    slide.classList.add('next');
+                }
+            });
+
+            // Smooth Progress bar update
+            const progress = ((currentSlide) / (slides.length - 1)) * 100;
+            progressBar.style.width = `${progress}%`;
+
+            // Update Notes with elegant typography
+            currentNoteDisplay.innerHTML = `
+                <div class="mb-6 flex items-center gap-3">
+                    <span class="bg-brand-gold text-brand-blue font-bold px-3 py-1 rounded-lg text-sm tracking-widest uppercase">Slide ${currentSlide + 1}</span>
+                </div>
+                <p class="text-[1.35rem] text-gray-600 leading-relaxed">${speakerNotes[currentSlide]}</p>
+            `;
+        }
+
+        function nextSlide() {
+            if (currentSlide < slides.length - 1) {
+                currentSlide++;
+                updateSlides();
+            }
+        }
+
+        function prevSlide() {
+            if (currentSlide > 0) {
+                currentSlide--;
+                updateSlides();
+            }
+        }
+
+        function toggleNotes() {
+            notesVisible = !notesVisible;
+            if (notesVisible) {
+                notesModal.classList.remove('hidden');
+                // Tiny delay to allow display:block to apply before animating opacity/transform
+                setTimeout(() => {
+                    notesBackdrop.classList.remove('opacity-0');
+                    notesContent.classList.remove('translate-y-full');
+                }, 20);
+            } else {
+                notesBackdrop.classList.add('opacity-0');
+                notesContent.classList.add('translate-y-full');
+                setTimeout(() => {
+                    notesModal.classList.add('hidden');
+                }, 500); // Wait for transition
+            }
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                prevSlide();
+            } else if (e.key === 'n' || e.key === 'N') {
+                toggleNotes();
+            }
+        });
+
+        // Swipe support for touch devices
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', e => {
+            touchStartX = e.changedTouches[0].screenX;
+        });
+
+        document.addEventListener('touchend', e => {
+            touchEndX = e.changedTouches[0].screenX;
+            handleSwipe();
+        });
+
+        function handleSwipe() {
+            const threshold = 50;
+            if (touchEndX < touchStartX - threshold) nextSlide(); // Swipe left
+            if (touchEndX > touchStartX + threshold) prevSlide(); // Swipe right
+        }
+
+        // Initialize
+        updateSlides();
+    </script>
+</body>
+</html>
